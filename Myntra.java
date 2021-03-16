@@ -71,8 +71,11 @@ public class Myntra {
 		List<WebElement> list = driver.findElementsByXPath("//h3[text()='MANGO']");
 		for (WebElement AllList : list) {
 			String allList = AllList.getText();
+			if (allList.contains("MANGO")) {
+				System.out.println("Hurrey");
+			}
 			System.out.println(allList);	
-			
+		}
 			WebElement sortby = driver.findElementByXPath("//span[contains(@class,'myntraweb-sprite sort-downArrow')]");
 			builder.moveToElement(sortby).perform();
 			driver.findElementByXPath("//label[text()='Better Discount']").click();
@@ -84,6 +87,7 @@ public class Myntra {
 			WebElement first_item = driver.findElementByXPath("(//div[@class='product-productMetaInfo'])[1]");
 			builder.moveToElement(first_item).perform();
 			
+			Thread.sleep(2000);
 			driver.findElementByXPath("(//span[@class='product-wishlistFlex product-actionsButton product-wishlist '])[1]").click();
 			
 			driver.close();
@@ -93,5 +97,5 @@ public class Myntra {
 	}
 	
 	
-}
+
 
